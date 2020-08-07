@@ -1,6 +1,7 @@
 package com.arifpurnama.onlinelearning.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.arifpurnama.onlinelearning.CoursePage;
 import com.arifpurnama.onlinelearning.R;
 import com.arifpurnama.onlinelearning.model.Category;
 import com.bumptech.glide.Glide;
@@ -39,6 +41,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         holder.totalCourses.setText(categoryList.get(position).getTotalCourses());
 
         Glide.with(context).load(categoryList.get(position).getImage()).into(holder.categoryImage);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent (context, CoursePage.class);
+                context.startActivity(i);
+            }
+        });
 
     }
 
