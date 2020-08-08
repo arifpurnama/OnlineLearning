@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         categoryRecyclerView = findViewById(R.id.course_recycler);
         //setup retrofit for network call fething data
         apiInterface = RetrofitClient.getRetrofitClient().create(ApiInterface.class);
+
         Call<List<Category>> call = apiInterface.getAllCategory();
         call.enqueue(new Callback<List<Category>>() {
             @Override
